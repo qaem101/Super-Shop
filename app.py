@@ -42,9 +42,28 @@ class Cart(db.Model):
 
 @app.route("/")
 def home():
-    db.create_all()
+    # db.create_all()
 
     return render_template("mainPage.html")
+
+
+# add product to cart
+@app.route("/add")
+def add():
+    form_data = request.form.to_dict()
+    print(form_data)
+
+    # image_names = request.form["image_name"]
+    # product_names = request.form["image_name"]
+    # prices = request.form["image_name"]
+    #  = request.form["image_name"]
+    # image_name = request.form["image_name"]
+
+
+
+    return render_template("cart.html")
+
+
 
 
 # remove product from cart
@@ -52,6 +71,9 @@ def home():
 @app.route("/remove")
 def remove():
     product_name = request.form["product_name"]
+    db.session.query(Cart).filter(Cart.product_name == product_name).delete()
+
+    return render_template("cart.html")
     
 
 
