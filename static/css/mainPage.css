@@ -52,7 +52,7 @@
 /* Hero  */
 
 #hero{
-	background-image: url("C:/Users/QAEM RAZA/Desktop/Project/E commerce/static/img/hero4.png");
+	background-image: url("../img/hero4.png");
 	height: 90vh;
 	width: 90vw%;
 	background-size: cover;
@@ -75,7 +75,7 @@
 }
 
 #hero button{
-	background-image: url(img/button.png);
+	background-image: url("../img/button.png");
 	background-color: transparent;
 	color: #088178;
 	border: 0;
@@ -194,7 +194,7 @@
 }
 
 #footer-banner{
-	background-image: url("C:/Users/QAEM RAZA/Desktop/project/E commerce/static/img/banner/b18.jpg");
+	background-image: url("../img/banner/b18.jpg");
 	height: 50vh;
 	width: 90vw%;
 	background-size : cover;
@@ -273,7 +273,7 @@ footer a:hover{
 /*  shop page    */
 
 #page-header{
-	background-image: url("C:/Users/QAEM RAZA/Desktop/Project/E commerce/static/img/banner/b1.jpg");
+	background-image: url("../img/banner/b18.jpg");
 	width: 98wh%;
 	height: 60vh%;
 	background-size: cover;

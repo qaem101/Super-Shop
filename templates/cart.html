@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\css\mainPage.css">
-		<link rel="icon" href="C:\Users\QAEM RAZA\Downloads\WhatsApp Image 2022-10-12 at 12.27.46.jpeg" type="image/icon type">
+		<link rel="stylesheet" type="text/css" href="../static/css/mainPage.css">
+		<link rel="icon" href="../static/img/logo.jpeg.jpeg" type="image/icon type">
 		
             <!-- load all Font Awesome v6 styles -->
             <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
@@ -16,7 +16,7 @@
 
 	<!------ Navigation Bar --->
 	    <div id = "header">
-			<a href="#"><img src="C:\Users\QAEM RAZA\Downloads\logo.jpeg (2).jpg"></a>
+			<a href="#"><img src="../static/img/logo.jpeg (2).jpg"></a>
 
 		 	<div>
 				<ul id="navbar">
@@ -53,18 +53,18 @@
 						<td>Subtotal</td>
 					</tr>
 			    </thead>
-			    <tbody>
-			    	<tr>
-						<!-- /remove -->
-			    		<td><a href="#"><i class="far fa-times-circle"></i></a></td>
-			    		<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f1.jpg"> </td>
-			    		<td>Cartoon Astronaut Shirts</td>
-			    		<td>Rs :- 6395/-</td>
-			    		<td> <input type="number" value="1"> </td>
-			    		<td>Rs :- 6395/-</td>
-			    	</tr>
-
-			    	<tr>
+			    <tbody id="tbody">
+                    <template>
+						<tr>
+							<td><a href="#"><i class="far fa-times-circle"></i></a></td>
+							<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f1.jpg"> </td>
+							<td>Cartoon Astronaut Shirts</td>
+							<td>Rs :- 6395/-</td>
+							<td> <input type="number" value="1"> </td>
+							<td>Rs :- 6395/-</td>
+						</tr>
+					</template>
+			    	<!-- <tr>
 			    		<td><a href="#"><i class="far fa-times-circle"></i></a></td>
 			    		<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f2.jpg"> </td>
 			    		<td>Cartoon Astronaut Shirts</td>
@@ -80,7 +80,7 @@
 			    		<td>Rs :- 6395/-</td>
 			    		<td> <input type="number" value="1"> </td>
 			    		<td>Rs :- 6395/-</td>
-			    	</tr>
+			    	</tr> -->
 
 
 			    </tbody>	
@@ -92,7 +92,7 @@
 
 		<footer id="border" class = "section-p1">
 			<div class="col">
-				<img src="logo.jpeg.jpeg" width="15%" height="30%">
+				<img src="../static/img/logo.jpeg.jpeg" width="15%" height="30%">
 				<h4> Contact Us</h4>
 				<p><strong>Address :</strong> 52 Wellington Road , Street 32 , San Francisco</p>
 				<p><strong>Phone:</strong> +01 2222 365 / (+91) 01 2345 6789</p>
@@ -101,18 +101,18 @@
 
 			<div class="col">
 				<h4>About</h4>
-				<a href="#">About Us</a>
+				<a href="about.html">About Us</a>
 				<a href="#">Delivery Information</a>
 				<a href="#">Privacy Policy</a>
 				<a href="#">Terms & Condition</a>
-				<a href="#">Contact Us</a>
+				<a href="contact.html">Contact Us</a>
 
 			</div> 
 
 			<div class="col">
 				<h4>My Account</h4>
-				<a href="#">Sign In</a>
-				<a href="#">View Cart</a>
+				<a href="loginPage.html">Sign In</a>
+				<a href="cart.html">View Cart</a>
 				<a href="#">My WhishList</a>
 				<a href="#">Track My Order</a>
 				<a href="#">Help</a>
@@ -122,13 +122,15 @@
 				<h4>Install App</h4>
 				<p>From App Store or Google play Store</p>
 				<div class="row">
-					<img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\pay\app.jpg">
-					<img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\pay\play.jpg">
+					<img src="../static/img/pay/app.jpg">
+					<img src="../static/img/pay/play.jpg">
 				</div>
 				<p></p>
 			</div>
 
 		</footer>
-
+		<script>
+			var tbody=document.getElementById("tbody");
+		</script>
 </body>
 </html>

@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\css\mainPage.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/mainPage.css">
 		<title>Product Details</title>
-		<link rel="icon" href="C:\Users\QAEM RAZA\Downloads\WhatsApp Image 2022-10-12 at 12.27.46.jpeg" type="image/icon type">
+		<link rel="icon" href="../static/img/logo1.jpeg" type="image/icon type">
 		<link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 	</head>
 	<body>
@@ -47,8 +47,8 @@
 				</div>
 			</div>
 
-			<div class="single-pro-details">
-				<h4>Home / T-Shirt</h4>
+			<div class="single-pro-details" id="prodetail">
+				<h4> T-Shirt</h4>
 				<h2>Men's Fashion T Shirt</h2>
 				<h3>6395/-</h3>
 				<select>
@@ -60,7 +60,7 @@
 				</select>
 
 				<input type="number" value="1">
-				<button class="normal">Add To Cart</button>
+				<button class="normal" id="cartbtn">Add To Cart</button>
 				<h4>Product Details</h4>
 				<span>
 					The Gildan ultra Cotton T-shirt is made from a substantial 6.0 oz per sq. yd. fabric constructed from 100% cotton.This classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shouldert, and a seamless double - needle callar and available in a range of colors,it offers it all in the ultimate head-turning package.
@@ -199,10 +199,16 @@
 			smallimg[3].onclick = function(){
 				MainImg.src = smallimg[3].src;
 			}
+
+			var btn=document.getElementById("cartbtn").onclick()=function (){
+				console.log("hello");
+				var node=document.getElementById("prodetail");
+				fetch("./add/{'product':'"+node.children[1].innerText+ "','price':'"+node.children[2].innerText+"'}").then(res.json()).then((data)={});
+			}
 		</script>
 
-		<script src="script.js">
-		</script>
+		<!-- <script src="script.js">
+		</script> -->
 
 	</body>
 	</html> 

@@ -48,10 +48,10 @@ def home():
 
 
 # add product to cart
-@app.route("/add")
-def add():
-    form_data = request.form.to_dict()
-    print(form_data)
+@app.route("/add/<product_data>")
+def add(product_data):
+    data = eval(product_data)
+    print(data)
 
     # image_names = request.form["image_name"]
     # product_names = request.form["image_name"]
@@ -59,6 +59,9 @@ def add():
     #  = request.form["image_name"]
     # image_name = request.form["image_name"]
 
+    # cart = Cart(product_name=product_name, price=price, quantity=quantity, subtotal=subtotal)
+    # db.session.add(cart)
+    # db.session.commit()
 
 
     return render_template("cart.html")
@@ -74,6 +77,10 @@ def remove():
     db.session.query(Cart).filter(Cart.product_name == product_name).delete()
 
     return render_template("cart.html")
+
+@app.route("/show-product/<product_name>")
+def show_product(product_name):
+    return render_template(f"{product_name}.html")
     
 
 
