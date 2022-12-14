@@ -36,32 +36,37 @@ class Cart(db.Model):
 #     password = db.Column(db.String(50), nullable=False)
 
 
-
+ID =0
 
 
 
 @app.route("/")
 def home():
     # db.create_all()
-
     return render_template("mainPage.html")
 
 
-# add product to cart
-@app.route("/add/<product_data>")
-def add(product_data):
-    data = eval(product_data)
-    print(data)
+@app.route("/cart")
+def cart():
+    # db.create_all()
+    return render_template("cart.html")
 
+# add product to cart
+@app.route("/add")
+def add():
+    # data = eval(product_data)
+    # print(data)
     # image_names = request.form["image_name"]
-    # product_names = request.form["image_name"]
-    # prices = request.form["image_name"]
+    product_name = request.args['pname']
+    price = request.args['price']
+    quant=request.args['quant']
     #  = request.form["image_name"]
     # image_name = request.form["image_name"]
-
-    # cart = Cart(product_name=product_name, price=price, quantity=quantity, subtotal=subtotal)
-    # db.session.add(cart)
-    # db.session.commit()
+    global ID
+    ID=len(db.session.query(Cart).all())+2
+    cart = Cart(id=ID,product_name=product_name, price=price,quantity=quant,subtotal=int(price)*int(quant))
+    db.session.add(cart)
+    db.session.commit()
 
 
     return render_template("cart.html")
@@ -73,16 +78,33 @@ def add(product_data):
 
 @app.route("/remove")
 def remove():
-    product_name = request.form["product_name"]
-    db.session.query(Cart).filter(Cart.product_name == product_name).delete()
-
+    id = request.args['pid']
+    db.session.query(Cart).filter(Cart.id == id).delete()
+    db.session.commit()
     return render_template("cart.html")
 
 @app.route("/show-product/<product_name>")
 def show_product(product_name):
     return render_template(f"{product_name}.html")
     
+@app.route("/show")
+def show():
+    main={}
+    temp={}
+    all = db.session.query(Cart).all()
+    print(all) 
+    for keyd in range(1,len(all)):
+        li=all[keyd]
+        for key ,value in li.__dict__.items():
+            if not key.startswith('_'):
+                temp[key]=value
+        
+        main[keyd]=temp
+        
+    return jsonify(main)
+
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+

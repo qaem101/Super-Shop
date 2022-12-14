@@ -50,7 +50,7 @@
 			<div class="single-pro-details" id="prodetail">
 				<h4> T-Shirt</h4>
 				<h2>Men's Fashion T Shirt</h2>
-				<h3>6395/-</h3>
+				<h3>6395</h3>
 				<select>
 					<option>Select Size</option>
 					<option>Small</option>
@@ -59,8 +59,8 @@
 					<option>Large</option>
 				</select>
 
-				<input type="number" value="1">
-				<button class="normal" id="cartbtn">Add To Cart</button>
+				<input type="number" value="1" id="quant">
+				<button class="normal" id="cart">Add To Cart</button>
 				<h4>Product Details</h4>
 				<span>
 					The Gildan ultra Cotton T-shirt is made from a substantial 6.0 oz per sq. yd. fabric constructed from 100% cotton.This classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shouldert, and a seamless double - needle callar and available in a range of colors,it offers it all in the ultimate head-turning package.
@@ -205,6 +205,11 @@
 				var node=document.getElementById("prodetail");
 				fetch("./add/{'product':'"+node.children[1].innerText+ "','price':'"+node.children[2].innerText+"'}").then(res.json()).then((data)={});
 			}
+			var btn=document.getElementById("cart").addEventListener("click",function(){
+				var node=document.getElementById("prodetail");
+				var quant=document.getElementById("quant").value
+				fetch("../add?pname="+node.children[1].innerText+ "&price="+node.children[2].innerText+"&quant="+quant).then(res.json()).then((data)={});
+			});
 		</script>
 
 		<!-- <script src="script.js">
