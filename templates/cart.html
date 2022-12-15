@@ -8,8 +8,9 @@
 		<link rel="icon" href="../static/img/logo.jpeg.jpeg" type="image/icon type">
 		
             <!-- load all Font Awesome v6 styles -->
-            <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+            <!-- <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"> -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Cart</title>
 </head>
 <body>
@@ -20,12 +21,12 @@
 
 		 	<div>
 				<ul id="navbar">
-					<li><a href="mainPage.html">Home</a></li>
+					<li><a href="./">Home</a></li>
 					<li><a href="shop.html">Shop</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="contact.html">Contact</a></li>
 					<li><a href="loginPage.html">Login</a></li>
-					<li><a class ="active" href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+					<li><a class ="active" href="/cart"><i class="fa fa-shopping-bag"></i></a></li>
 				</ul>
 			</div>
 
@@ -46,7 +47,6 @@
 
 					<tr>
 						<td>Remove</td>
-						<td>Image</td>
 						<td>Product</td>
 						<td>Price</td>
 						<td>Quantity</td>
@@ -56,31 +56,13 @@
 			    <tbody id="tbody">
                     <template>
 						<tr>
-							<td><a href="#"><i class="far fa-times-circle"></i></a></td>
-							<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f1.jpg"> </td>
+							<td><a href="#"><i class="fa fa-times-circle"></i></a></td>
 							<td>Cartoon Astronaut Shirts</td>
 							<td>Rs :- 6395/-</td>
-							<td> <input type="number" value="1"> </td>
+							<td>1</td>
 							<td>Rs :- 6395/-</td>
 						</tr>
 					</template>
-			    	<!-- <tr>
-			    		<td><a href="#"><i class="far fa-times-circle"></i></a></td>
-			    		<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f2.jpg"> </td>
-			    		<td>Cartoon Astronaut Shirts</td>
-			    		<td>Rs :- 6395/-</td>
-			    		<td> <input type="number" value="1"> </td>
-			    		<td>Rs :- 6395/-</td>
-			    	</tr>
-
-			    	<tr>
-			    		<td><a href="#"><i class="far fa-times-circle"></i></a></td>
-			    		<td> <img src="C:\Users\QAEM RAZA\Desktop\Project\E commerce\static\img\products\f3.jpg"> </td>
-			    		<td>Cartoon Astronaut Shirts</td>
-			    		<td>Rs :- 6395/-</td>
-			    		<td> <input type="number" value="1"> </td>
-			    		<td>Rs :- 6395/-</td>
-			    	</tr> -->
 
 
 			    </tbody>	
@@ -130,7 +112,30 @@
 
 		</footer>
 		<script>
-			var tbody=document.getElementById("tbody");
+			fetch("../show").then((res)=>res.json()).then((data)=>{
+				var tbody=document.getElementById("tbody");
+				var length=Object.keys(data).length
+			    for (let index = 1; index <= length; index++) {
+					var node=tbody.children[0].content.children[0].cloneNode(true)
+					const element = data[index];
+					node.children[0].children[0].children[0].pid=index
+					node.children[0].children[0].children[0].addEventListener("click",(e)=>{
+						console.log(e.path[0].pid)
+						fetch("../remove?pid="+e.path[0].pid).then((res)=>location.replace="./cart");
+					})
+					node.children[1]=element.product_name
+					node.children[2]=element.price
+					node.children[3]=element.quantity
+					node.children[4]=element.subtotal
+					tbody.appendChild(node);
+				}
+				
+			})
+			// var tbody=document.getElementById("tbody");
+			// var node=tbody.children[0].content.children[0]
+			// tbody.appendChild(node.cloneNode(true))
+			// console.log(node)
+			
 		</script>
 </body>
 </html>
