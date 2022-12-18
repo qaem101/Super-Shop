@@ -92,16 +92,26 @@ def show():
     main={}
     temp={}
     all = db.session.query(Cart).all()
-    print(all) 
-    for keyd in range(1,len(all)):
-        li=all[keyd]
-        for key ,value in li.__dict__.items():
-            if not key.startswith('_'):
-                temp[key]=value
+
+    # convert all variable to dictionary in less lines of code
+    all = [i.__dict__ for i in all]
+    # remove _sa_instance_state from all
+    for i in all:
+        i.pop("_sa_instance_state")
+
+    print(all)
+
+
+    # print(all) 
+    # for keyd in range(1,len(all)):
+    #     li=all[keyd]
+    #     for key ,value in li.__dict__.items():
+    #         if not key.startswith('_'):
+    #             temp[key]=value
         
-        main[keyd]=temp
+    #     main[keyd]=temp
         
-    return jsonify(main)
+    return jsonify(all)
 
 
 
