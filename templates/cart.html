@@ -115,18 +115,18 @@
 			fetch("../show").then((res)=>res.json()).then((data)=>{
 				var tbody=document.getElementById("tbody");
 				var length=Object.keys(data).length
-			    for (let index = 1; index <= length; index++) {
+			    for (let index = 0; index < length; index++) {
 					var node=tbody.children[0].content.children[0].cloneNode(true)
 					const element = data[index];
-					node.children[0].children[0].children[0].pid=index
+					node.children[0].children[0].children[0].pid=element.id
 					node.children[0].children[0].children[0].addEventListener("click",(e)=>{
 						console.log(e.path[0].pid)
-						fetch("../remove?pid="+e.path[0].pid).then((res)=>location.replace="./cart");
+						fetch("../remove?pid="+e.path[0].pid).then((res)=>location.reload());
 					})
-					node.children[1]=element.product_name
-					node.children[2]=element.price
-					node.children[3]=element.quantity
-					node.children[4]=element.subtotal
+					node.children[1].innerText=element.product_name
+					node.children[2].innerText=element.price
+					node.children[3].innerText=element.quantity
+					node.children[4].innerText=element.subtotal
 					tbody.appendChild(node);
 				}
 				
