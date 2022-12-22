@@ -17,11 +17,12 @@
 
 		 	<div>
 				<ul id="navbar">
-					<li><a href="mainPage.html">Home</a></li>
-					<li><a class="active" href="shop.html">Shop</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+					<li><a href="/">Home</a></li>
+					<li><a class="active" href="/shop">Shop</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/loginPage">Login</a></li>
+					<li><a href="/cart" id="cart-icon"><i class="fa fa-shopping-bag"></i></a></li>
 				</ul>
 			</div>
 
@@ -66,7 +67,7 @@
 					The Gildan ultra Cotton T-shirt is made from a substantial 6.0 oz per sq. yd. fabric constructed from 100% cotton.This classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shouldert, and a seamless double - needle callar and available in a range of colors,it offers it all in the ultimate head-turning package.
 				</span>
 				<br><br><br>
-				<button class="normal" onclick="window.location.href='button.html';">Buy Now</button>
+				<button class="normal" > <a href="/button"> Buy Now </a></button>
 			</div> 
 		</section>
 
@@ -78,7 +79,7 @@
 			<div class="pro-container">
 
 				<div class="pro">
-					<img src="../static/img/products/n7.jpg" onclick="window.location.href='sproduct12.html';">
+					<img src="../static/img/products/n7.jpg" p = "12" class="meri">
 
 					<div class="des">
 
@@ -98,7 +99,7 @@
 				</div>
 
 				<div class="pro">
-					<img src="../static/img/products/n8.jpg" onclick="window.location.href='sproduct13.html';">
+					<img src="../static/img/products/n8.jpg" p = "13" class="meri">
 
 					<div class="des">
 
@@ -118,7 +119,7 @@
 				</div>
 
 				<div class="pro">
-					<img src="../static/img/products/f1.jpg" onclick="window.location.href='sproduct.html';">
+					<img src="../static/img/products/f1.jpg" p = "0" class="meri">
 
 					<div class="des">
 
@@ -198,6 +199,19 @@
 			}
 			smallimg[3].onclick = function(){
 				MainImg.src = smallimg[3].src;
+			}
+			var pro=document.querySelectorAll(".meri");
+			pro.forEach(element => {
+				element.onclick=function(){
+					window.location="/show-product/sproduct"+element.attributes.p.value;
+				}
+			});
+
+
+			var btn=document.getElementById("cartbtn").onclick()=function (){
+				console.log("hello");
+				var node=document.getElementById("prodetail");
+				fetch("./add/{'product':'"+node.children[1].innerText+ "','price':'"+node.children[2].innerText+"'}").then(res.json()).then((data)={});
 			}
 			var btn=document.getElementById("cart").addEventListener("click",function(){
 				var node=document.getElementById("prodetail");

@@ -38,6 +38,13 @@ class Cart(db.Model):
 
 ID =0
 
+
+@app.route("/button")
+def about():
+    # db.create_all()
+    return render_template("button.html")
+
+
 @app.route("/about")
 def about():
     # db.create_all()

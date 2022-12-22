@@ -18,7 +18,7 @@
 		 	<div>
 				<ul id="navbar">
 					<li><a href="/">Home</a></li>
-					<li><a class ="active" href="/shop">Shop</a></li>
+					<li><a class="active" href="/shop">Shop</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/loginPage">Login</a></li>
@@ -40,8 +40,8 @@
 
 			<div class="pro-container">
 
-				<div class="pro" onclick="window.location.href='sproduct.html';">
-					<img src="../static/img/products/f1.jpg">
+				<div class="pro">
+					<img src="../static/img/products/f1.jpg" p = "0" class="meri">
 
 					<div class="des">
 
@@ -61,7 +61,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct1.html';">
-					<img src="../static/img/products/f2.jpg">
+					<img src="../static/img/products/f2.jpg" p = "1" class="meri">
 
 					<div class="des">
 
@@ -81,7 +81,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct2.html';">
-					<img src="../static/img/products/f3.jpg">
+					<img src="../static/img/products/f3.jpg" p = "2" class="meri">
 
 					<div class="des">
 
@@ -101,9 +101,9 @@
 				</div>
 
 				<div class="pro">
-					<img src="../static/img/products/f4.jpg" onclick="window.location.href='sproduct3.html';">
+					<img src="../static/img/products/f4.jpg" p = "3" class="meri">
 
-					<div class="des">
+					<div class = "des">
 
 						<span>Adidas</span>
 						<h5>Cartoon Astronaut Shirts</h5>
@@ -121,7 +121,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct4.html';">
-					<img src="../static/img/products/f5.jpg">
+					<img src="../static/img/products/f5.jpg" p = "4" class="meri">
 
 					<div class="des">
 
@@ -141,7 +141,7 @@
 				</div>
 
 				<div class="pro">
-					<img src="../static/img/products/f6.jpg" onclick="window.location.href='sproduct5.html';">
+					<img src="../static/img/products/f6.jpg" p = "5" class="meri">
 
 					<div class="des">
 
@@ -161,7 +161,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct6.html';">
-					<img src="../static/img/products/n1.jpg">
+					<img src="../static/img/products/n1.jpg" p = "6" class="meri">
 
 					<div class="des">
 
@@ -181,7 +181,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct7.html';">
-					<img src="../static/img/products/n2.jpg">
+					<img src="../static/img/products/n2.jpg" p = "7" class="meri">
 
 					<div class="des">
 
@@ -201,7 +201,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct8.html';">
-					<img src="../static/img/products/n3.jpg">
+					<img src="../static/img/products/n3.jpg" p = "8" class="meri">
 
 					<div class="des">
 
@@ -221,7 +221,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct9.html';">
-					<img src="../static/img/products/n4.jpg">
+					<img src="../static/img/products/n4.jpg" p = "9" class="meri">
 
 					<div class="des">
 
@@ -241,7 +241,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct10.html';">
-					<img src="../static/img/products/n5.jpg">
+					<img src="../static/img/products/n5.jpg" p = "10" class="meri">
 
 					<div class="des">
 
@@ -261,7 +261,7 @@
 				</div>
 
 				<div class="pro" onclick="window.location.href='sproduct11.html';">
-					<img src="../static/img/products/n6.jpg">
+					<img src="../static/img/products/n6.jpg" p = "11" class="meri">
 
 					<div class="des">
 
@@ -285,9 +285,9 @@
 		</section>
 
 		<section id="pagination" class="section-p1">
-			<a href="shop.html">1</a>
-			<a href="shop1.html">2</a>
-			<a href="shop1.html"><i class="fal fa-long-arrow-alt-right"></i></a>
+			<a href="/shop">1</a>
+			<a href="/shop1">2</a>
+			<a href="/shop1"><i class="fal fa-long-arrow-alt-right"></i></a>
 
 		</section>
 
@@ -332,6 +332,16 @@
 			</div>
 
 		</footer>
+
+
+		<script>
+			var pro=document.querySelectorAll(".meri");
+			pro.forEach(element => {
+				element.onclick=function(){
+					window.location="/show-product/sproduct"+element.attributes.p.value;
+				}
+			});
+		</script>
 
 
 	</body>
