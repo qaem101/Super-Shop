@@ -40,7 +40,7 @@ ID =0
 
 
 @app.route("/button")
-def about():
+def button():
     # db.create_all()
     return render_template("button.html")
 

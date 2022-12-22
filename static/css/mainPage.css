@@ -1,7 +1,7 @@
 /*   Header    */
 #header{
 	display: flex;
-	align align-items: center;
+	align-items: center;
 	justify-content: space-between;
 	padding: 20px 80px;
 	background: #E3E6F3;
@@ -54,7 +54,7 @@
 #hero{
 	background-image: url("../img/hero4.png");
 	height: 90vh;
-	width: 90vw%;
+	width: 90vw;
 	background-size: cover;
 	background-position: top 25% right 0;
 	padding: 0 80px;
@@ -198,7 +198,7 @@
 #footer-banner{
 	background-image: url("../img/banner/b18.jpg");
 	height: 50vh;
-	width: 90vw%;
+	width: 90vw;
 	background-size : cover;
 	background-position: top 25% right 0;
 	padding: 0 80px;
@@ -276,8 +276,8 @@ footer a:hover{
 
 #page-header{
 	background-image: url("../img/banner/b18.jpg");
-	width: 98wh%;
-	height: 60vh%;
+	width: 98vw;
+	height: 60vh;
 	background-size: cover;
 	display: flex;
 	justify-content: center;
