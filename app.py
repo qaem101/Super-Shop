@@ -38,6 +38,30 @@ class Cart(db.Model):
 
 ID =0
 
+@app.route("/about")
+def about():
+    # db.create_all()
+    return render_template("about.html")
+
+@app.route("/shop1")
+def shop1():
+    # db.create_all()
+    return render_template("shop1.html")
+
+@app.route("/loginPage")
+def loginPage():
+    # db.create_all()
+    return render_template("loginPage.html")
+
+@app.route("/contact")
+def contact():
+    # db.create_all()
+    return render_template("contact.html")
+
+@app.route("/shop")
+def shop():
+    # db.create_all()
+    return render_template("shop.html")
 
 
 @app.route("/")

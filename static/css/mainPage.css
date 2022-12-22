@@ -129,6 +129,7 @@
 
 #product1{
 	text-align: center;
+	justify-content: space-between;
 }
 
 #product1 .pro-container{
@@ -148,6 +149,7 @@
 	box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
 	margin: 15px 0;
 	transition: 0.2s ease;
+	justify-content: space-between;
 }
 
 #product1 .pro img{
